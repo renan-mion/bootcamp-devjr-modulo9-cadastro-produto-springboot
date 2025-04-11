@@ -1,5 +1,6 @@
 package com.abutua.product_backend.controllers;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,10 +18,7 @@ import com.abutua.product_backend.models.Product;
 public class ProductController {
     private List<Category> categories = new CategoryController().getCategories();
 
-    private List<Product> products = Arrays.asList(
-        new Product(1, "Produto 1", "Eletrônico", 19.9, categories.get(0).getId(), true, true),
-        new Product(2, "Produto 2", "Eletrodoméstico", 29.9, categories.get(1).getId(), true, false),
-        new Product(3, "Produto 3", "Produto de limpeza", 39.9, categories.get(2).getId(), false, true));
+    private List<Product> products = new ArrayList<Product>();
 
     @GetMapping("products/{id}")
     public ResponseEntity<Product> getProduct(@PathVariable int id) {
